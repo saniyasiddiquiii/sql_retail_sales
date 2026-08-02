@@ -55,13 +55,13 @@ SELECT * FROM retail_sales
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
     gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
 
 DELETE FROM retail_sales
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
     gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
 ```
 
 ### 3. Data Analysis & Findings
@@ -75,7 +75,7 @@ FROM retail_sales
 WHERE sale_date = '2022-09-05';
 ```
 
-2. **Write a SQL query to retrieve all transactions where the category is 'Beauty' and the quantity sold is more than 3 in the month of Nov-2022**:
+2. **Write a SQL query to retrieve all transactions where the category is 'Beauty' and the quantity sold is more than or equal to 3 in the month of Nov-2022**:
 ```sql
 SELECT 
   *
@@ -101,10 +101,10 @@ ORDER BY category
 ```sql
 SELECT ROUND(AVG(age),2) AS average_age
 FROM retail_sales
-WHERE category='Electronics'
+WHERE category='Electronics';
 ```
 
-5. **Write a SQL query to find all transactions where the total_sale is greater than 1500.**:
+5. **Write a SQL query to find all transactions where the total_sale is greater than or equal to 1500.**:
 ```SELECT * 
 FROM retail_sales
 WHERE total_sale>=1500
